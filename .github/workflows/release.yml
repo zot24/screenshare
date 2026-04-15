@@ -66,6 +66,7 @@ jobs:
     needs: create-release
     runs-on: ${{ matrix.platform.os }}
     strategy:
+      fail-fast: false
       matrix:
         platform:
           - name: macOS-arm64
@@ -90,7 +91,8 @@ jobs:
           sudo apt-get install -y libxcb-randr0-dev libxcb-shm0-dev libxcb-xfixes0-dev \
             libxcb-shape0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
             libdbus-1-dev pkg-config libgtk-3-dev libwayland-dev \
-            libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+            libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf \
+            libpipewire-0.3-dev
 
       - uses: dtolnay/rust-toolchain@stable
         with:
@@ -129,6 +131,7 @@ jobs:
     needs: create-release
     runs-on: ${{ matrix.platform.os }}
     strategy:
+      fail-fast: false
       matrix:
         platform:
           - name: macOS
@@ -145,7 +148,8 @@ jobs:
           sudo apt-get install -y libxcb-randr0-dev libxcb-shm0-dev libxcb-xfixes0-dev \
             libxcb-shape0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
             libdbus-1-dev pkg-config libgtk-3-dev libwayland-dev \
-            libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+            libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf \
+            libpipewire-0.3-dev
 
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
