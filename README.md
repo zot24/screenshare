@@ -33,14 +33,26 @@ sudo mv screenshare /usr/local/bin/
 
 **Linux (.deb):**
 ```bash
-# Download the .deb from the latest release
-curl -LO https://github.com/zot24/screenshare/releases/latest/download/screenshare_0.1.0_amd64.deb
-sudo dpkg -i screenshare_0.1.0_amd64.deb
+curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.deb"
+sudo dpkg -i LAN.Screen.Share_0.1.0_amd64.deb
+```
+
+**Linux (.AppImage):**
+```bash
+curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.AppImage"
+chmod +x LAN.Screen.Share_0.1.0_amd64.AppImage
+./LAN.Screen.Share_0.1.0_amd64.AppImage
+```
+
+**Linux (.rpm):**
+```bash
+curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share-0.1.0-1.x86_64.rpm"
+sudo rpm -i LAN.Screen.Share-0.1.0-1.x86_64.rpm
 ```
 
 ### macOS app
 
-Download the `.dmg` from the [latest release](https://github.com/zot24/screenshare/releases/latest) and drag to Applications.
+Download the [`.dmg`](https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_aarch64.dmg) from the [latest release](https://github.com/zot24/screenshare/releases/latest) and drag to Applications.
 
 ### Build from source
 
