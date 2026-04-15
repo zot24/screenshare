@@ -11,23 +11,59 @@ Zero-config LAN screen and terminal sharing. One binary, auto-discovery, works o
 
 ## Install
 
-```bash
-# From source
-cargo install --path src-tauri
+### Quick install (download binary)
 
-# Or build manually
-cd src-tauri && cargo build --release
-# Binary at: src-tauri/target/release/screenshare
+**macOS (Apple Silicon):**
+```bash
+curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-macOS-arm64.tar.gz | tar xz
+sudo mv screenshare /usr/local/bin/
 ```
 
-### Requirements
+**macOS (Intel):**
+```bash
+curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-macOS-x86_64.tar.gz | tar xz
+sudo mv screenshare /usr/local/bin/
+```
 
-- **macOS:** Works out of the box. Screen Recording permission required for screen capture.
-- **Linux:** Requires X11/Wayland libs:
-  ```bash
-  sudo apt install libxcb-randr0-dev libxcb-shm0-dev libxcb-xfixes0-dev \
-    libdbus-1-dev libgtk-3-dev libwebkit2gtk-4.1-dev
-  ```
+**Linux (x86_64):**
+```bash
+curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-Linux-x86_64.tar.gz | tar xz
+sudo mv screenshare /usr/local/bin/
+```
+
+**Linux (.deb):**
+```bash
+# Download the .deb from the latest release
+curl -LO https://github.com/zot24/screenshare/releases/latest/download/screenshare_0.1.0_amd64.deb
+sudo dpkg -i screenshare_0.1.0_amd64.deb
+```
+
+### macOS app
+
+Download the `.dmg` from the [latest release](https://github.com/zot24/screenshare/releases/latest) and drag to Applications.
+
+### Build from source
+
+```bash
+git clone https://github.com/zot24/screenshare.git
+cd screenshare/src-tauri
+cargo build --release
+# Binary at: target/release/screenshare
+```
+
+#### Linux build dependencies
+
+```bash
+sudo apt install libxcb-randr0-dev libxcb-shm0-dev libxcb-xfixes0-dev \
+  libxcb-shape0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+  libdbus-1-dev pkg-config libgtk-3-dev libwayland-dev \
+  libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev \
+  libpipewire-0.3-dev libgbm-dev libdrm-dev libegl-dev
+```
+
+#### macOS note
+
+Screen Recording permission is required for screen capture. macOS will prompt you on first use.
 
 ## Usage
 
