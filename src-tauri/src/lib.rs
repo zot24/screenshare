@@ -1,6 +1,8 @@
 mod capture;
 mod discovery;
 mod protocol;
+pub mod terminal;
+pub mod tui;
 mod viewer;
 
 use capture::{CaptureSource, WindowInfo};

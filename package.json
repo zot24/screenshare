@@ -7,9 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "dev:tui": "cd packages/tui && npx tsx src/index.ts",
     "dev:gui": "tauri dev",
-    "build:tui": "cd packages/tui && npm run build",
     "build:gui": "tauri build"
   },
   "devDependencies": {
