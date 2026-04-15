@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAN Screen Share</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="home-screen">
+      <h1>LAN Screen Share</h1>
+      <p id="identity"></p>
+
+      <fieldset id="source-picker">
+        <legend>Share source:</legend>
+        <label>
+          <input type="radio" name="source" value="fullscreen" checked />
+          Full Screen
+        </label>
+        <div id="window-list"></div>
+      </fieldset>
+
+      <div id="share-controls">
+        <button id="share-btn">Share</button>
+        <span id="share-status"></span>
+      </div>
+
+      <hr />
+      <h2>Available screens on your network:</h2>
+      <div id="sharers-list">
+        <p class="muted">Scanning local network...</p>
+      </div>
+    </div>
+
+    <div id="viewer-screen" style="display:none;">
+      <div id="viewer-header">
+        <button id="back-btn">&lt;&lt; Back</button>
+        <span id="viewer-label"></span>
+      </div>
+      <div id="viewer-container">
+        <img id="viewer-img" alt="Remote screen" />
+        <p id="viewer-connecting">Connecting...</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -19,6 +19,10 @@ pub struct DiscoveryMessage {
     pub port: u16,
     #[serde(default)]
     pub sharing: String, // e.g. "Full Screen" or "Terminal - tmux"
+    #[serde(default)]
+    pub mode: String, // "screen" or "terminal"
+    #[serde(default)]
+    pub source: String, // "lan" or "tailscale" (UI hint only)
 }
 
 pub fn write_frame(stream: &mut TcpStream, jpeg_data: &[u8]) -> Result<()> {
@@ -75,6 +79,8 @@ mod tests {
             ip: "192.168.1.42".into(),
             port: 42070,
             sharing: "Terminal - tmux".into(),
+            mode: "terminal".into(),
+            source: "lan".into(),
         };
         let json = serde_json::to_string(&msg).unwrap();
         let decoded: DiscoveryMessage = serde_json::from_str(&json).unwrap();
@@ -82,5 +88,7 @@ mod tests {
         assert_eq!(decoded.ip, "192.168.1.42");
         assert_eq!(decoded.port, 42070);
         assert_eq!(decoded.sharing, "Terminal - tmux");
+        assert_eq!(decoded.mode, "terminal");
+        assert_eq!(decoded.source, "lan");
     }
 }

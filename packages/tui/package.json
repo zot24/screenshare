@@ -1,0 +1,23 @@
+{
+  "name": "@screenshare/tui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "screenshare": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup src/index.ts --format esm --target node22"
+  },
+  "dependencies": {
+    "@opentui/core": "latest",
+    "node-pty": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4",
+    "tsup": "^8",
+    "typescript": "^5",
+    "@types/node": "^22"
+  }
+}

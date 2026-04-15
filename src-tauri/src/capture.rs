@@ -1,6 +1,7 @@
 use crate::protocol::{write_frame, JPEG_QUALITY, STREAM_PORT, TARGET_FPS};
 use image::codecs::jpeg::JpegEncoder;
 use image::RgbaImage;
+use serde::Serialize;
 use std::io::Cursor;
 use std::net::{TcpListener, TcpStream};
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -8,14 +9,14 @@ use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::{Duration, Instant};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 pub struct WindowInfo {
     pub id: u32,
     pub app_name: String,
     pub title: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 pub enum CaptureSource {
     FullScreen,
     Window(WindowInfo),
