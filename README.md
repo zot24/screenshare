@@ -25,17 +25,24 @@ curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshar
 sudo mv screenshare /usr/local/bin/
 ```
 
-**Linux (x86_64):**
+**Linux — Debian/Ubuntu (recommended):**
+```bash
+curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.deb"
+sudo apt install ./LAN.Screen.Share_0.1.0_amd64.deb
+```
+
+**Linux — Fedora/RHEL:**
+```bash
+curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share-0.1.0-1.x86_64.rpm"
+sudo dnf install ./LAN.Screen.Share-0.1.0-1.x86_64.rpm
+```
+
+**Linux — standalone binary (Ubuntu 24.04+):**
 ```bash
 curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-Linux-x86_64.tar.gz | tar xz
 sudo mv screenshare /usr/local/bin/
 ```
-
-**Linux (.deb):**
-```bash
-curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.deb"
-sudo dpkg -i LAN.Screen.Share_0.1.0_amd64.deb
-```
+> Note: The standalone binary requires GLIBC 2.39+ (Ubuntu 24.04+). For older distros, use the `.deb` or `.rpm` packages above which handle dependencies automatically.
 
 **Linux (.AppImage):**
 ```bash
