@@ -78,7 +78,7 @@ jobs:
             target: x86_64-apple-darwin
             binary: screenshare
           - name: Linux-x86_64
-            os: ubuntu-latest
+            os: ubuntu-22.04
             target: x86_64-unknown-linux-gnu
             binary: screenshare
     steps:
@@ -137,7 +137,7 @@ jobs:
           - name: macOS
             os: macos-latest
           - name: Linux
-            os: ubuntu-latest
+            os: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
