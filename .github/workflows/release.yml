@@ -39,25 +39,64 @@ jobs:
 
             ${{ steps.changelog.outputs.changes }}
 
-            ## Downloads
+            ## Install
 
-            | Platform | Binary | Installer |
-            |----------|--------|-----------|
-            | macOS (Apple Silicon) | `screenshare-macOS-arm64.tar.gz` | `.dmg` |
-            | macOS (Intel) | `screenshare-macOS-x86_64.tar.gz` | `.dmg` |
-            | Linux (x86_64) | `screenshare-Linux-x86_64.tar.gz` | `.deb`, `.AppImage` |
+            ### macOS
 
-            ### Quick install
-
+            **Binary (one-liner):**
             ```bash
-            # macOS (Apple Silicon)
+            # Apple Silicon
             curl -L https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/screenshare-macOS-arm64.tar.gz | tar xz
-            ./screenshare
+            sudo mv screenshare /usr/local/bin/
 
-            # Linux
-            curl -L https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/screenshare-Linux-x86_64.tar.gz | tar xz
-            ./screenshare
+            # Intel
+            curl -L https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/screenshare-macOS-x86_64.tar.gz | tar xz
+            sudo mv screenshare /usr/local/bin/
             ```
+
+            **Desktop app:** Download the `.dmg` below, open it, drag to Applications.
+
+            > macOS will ask for Screen Recording permission on first use.
+
+            ### Linux
+
+            **Debian / Ubuntu (recommended):**
+            ```bash
+            curl -LO https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/LAN.Screen.Share_0.1.0_amd64.deb
+            sudo apt install ./LAN.Screen.Share_0.1.0_amd64.deb
+            ```
+
+            **Fedora / RHEL:**
+            ```bash
+            curl -LO https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/LAN.Screen.Share-0.1.0-1.x86_64.rpm
+            sudo dnf install ./LAN.Screen.Share-0.1.0-1.x86_64.rpm
+            ```
+
+            **AppImage (any distro):**
+            ```bash
+            curl -LO https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/LAN.Screen.Share_0.1.0_amd64.AppImage
+            chmod +x LAN.Screen.Share_0.1.0_amd64.AppImage
+            ./LAN.Screen.Share_0.1.0_amd64.AppImage
+            ```
+
+            **Standalone binary (Ubuntu 24.04+ only):**
+            ```bash
+            curl -L https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/screenshare-Linux-x86_64.tar.gz | tar xz
+            sudo mv screenshare /usr/local/bin/
+            ```
+            > Requires GLIBC 2.39+ and system libs (GTK3, WebKitGTK). For older distros use `.deb` or `.rpm` above.
+
+            ## All artifacts
+
+            | Platform | File | Type |
+            |----------|------|------|
+            | macOS (Apple Silicon) | `screenshare-macOS-arm64.tar.gz` | Binary |
+            | macOS (Intel) | `screenshare-macOS-x86_64.tar.gz` | Binary |
+            | macOS | `.dmg` | Desktop installer |
+            | Linux | `.deb` | Debian/Ubuntu package |
+            | Linux | `.rpm` | Fedora/RHEL package |
+            | Linux | `.AppImage` | Portable app |
+            | Linux | `screenshare-Linux-x86_64.tar.gz` | Binary (24.04+) |
           draft: false
           prerelease: false
 
