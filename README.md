@@ -11,55 +11,54 @@ Zero-config LAN screen and terminal sharing. One binary, auto-discovery, works o
 
 ## Install
 
-### Quick install (download binary)
+### macOS
 
-**macOS (Apple Silicon):**
+**Binary (Apple Silicon):**
 ```bash
 curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-macOS-arm64.tar.gz | tar xz
 sudo mv screenshare /usr/local/bin/
 ```
 
-**macOS (Intel):**
+**Binary (Intel):**
 ```bash
 curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-macOS-x86_64.tar.gz | tar xz
 sudo mv screenshare /usr/local/bin/
 ```
 
-**Linux — Debian/Ubuntu (recommended):**
+**Desktop app (.dmg):**
+
+Download the [`.dmg`](https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_aarch64.dmg) from the [latest release](https://github.com/zot24/screenshare/releases/latest) and drag to Applications.
+
+> macOS will ask for Screen Recording permission on first use. Grant it in System Settings > Privacy & Security > Screen Recording.
+
+### Linux
+
+**Debian / Ubuntu (recommended):**
 ```bash
 curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.deb"
 sudo apt install ./LAN.Screen.Share_0.1.0_amd64.deb
 ```
+This installs all required dependencies (GTK3, WebKitGTK, etc.) automatically.
 
-**Linux — Fedora/RHEL:**
+**Fedora / RHEL:**
 ```bash
 curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share-0.1.0-1.x86_64.rpm"
 sudo dnf install ./LAN.Screen.Share-0.1.0-1.x86_64.rpm
 ```
 
-**Linux — standalone binary (Ubuntu 24.04+):**
-```bash
-curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-Linux-x86_64.tar.gz | tar xz
-sudo mv screenshare /usr/local/bin/
-```
-> Note: The standalone binary requires GLIBC 2.39+ (Ubuntu 24.04+). For older distros, use the `.deb` or `.rpm` packages above which handle dependencies automatically.
-
-**Linux (.AppImage):**
+**AppImage (any distro):**
 ```bash
 curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_amd64.AppImage"
 chmod +x LAN.Screen.Share_0.1.0_amd64.AppImage
 ./LAN.Screen.Share_0.1.0_amd64.AppImage
 ```
 
-**Linux (.rpm):**
+**Standalone binary (Ubuntu 24.04+ only):**
 ```bash
-curl -LO "https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share-0.1.0-1.x86_64.rpm"
-sudo rpm -i LAN.Screen.Share-0.1.0-1.x86_64.rpm
+curl -L https://github.com/zot24/screenshare/releases/latest/download/screenshare-Linux-x86_64.tar.gz | tar xz
+sudo mv screenshare /usr/local/bin/
 ```
-
-### macOS app
-
-Download the [`.dmg`](https://github.com/zot24/screenshare/releases/latest/download/LAN.Screen.Share_0.1.0_aarch64.dmg) from the [latest release](https://github.com/zot24/screenshare/releases/latest) and drag to Applications.
+> The standalone binary requires GLIBC 2.39+ (Ubuntu 24.04+) and system libraries (GTK3, WebKitGTK, pipewire). For older distros, use the `.deb` or `.rpm` packages above — they handle dependencies automatically.
 
 ### Build from source
 
